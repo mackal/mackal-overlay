@@ -1,0 +1,11 @@
+# ChangeLog for games-fps/yamagi-quake2
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*yamagi-quake2-5.00 (12 Dec 2012)
+
+  12 Dec 2012; Michael Cook <mcook@mackal.net> +yamagi-quake2-5.00.ebuild,
+  +files/yquake2-rogue, +files/yamagi-quake2-5.00-gentoo-paths.patch,
+  +files/yquake2-xatrix, +metadata.xml:
+  Initial Yamagi Quake II ebuild
+

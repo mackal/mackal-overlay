@@ -1,0 +1,4 @@
+#!/bin/sh
+
+yquake2 +set game xatrix
+
