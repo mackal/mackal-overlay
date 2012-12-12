@@ -1,0 +1,76 @@
+--- makefile.orig	2012-09-08 15:58:12.000000000 -0400
++++ makefile	2012-11-15 13:47:10.444818689 -0500
+@@ -456,9 +456,6 @@
+ CPPONLYFLAGS += -x c++ -std=gnu++98
+ COBJFLAGS += -x objective-c++
+ 
+-# this speeds it up a bit by piping between the preprocessor/compiler/assembler
+-CCOMFLAGS += -pipe
+-
+ # add -g if we need symbols, and ensure we have frame pointers
+ ifdef SYMBOLS
+ CCOMFLAGS += -g$(SYMLEVEL) -fno-omit-frame-pointer
+@@ -466,7 +463,6 @@
+ 
+ # add -v if we need verbose build information
+ ifdef VERBOSE
+-CCOMFLAGS += -v
+ endif
+ 
+ # add profiling information for the compiler
+@@ -474,19 +470,6 @@
+ CCOMFLAGS += -pg
+ endif
+ 
+-# add the optimization flag
+-CCOMFLAGS += -O$(OPTIMIZE)
+-
+-# add the error warning flag
+-ifndef NOWERROR
+-CCOMFLAGS += -Werror
+-endif
+-
+-# if we are optimizing, include optimization options
+-ifneq ($(OPTIMIZE),0)
+-CCOMFLAGS += -fno-strict-aliasing $(ARCHOPTS)
+-endif
+-
+ # add a basic set of warnings
+ CCOMFLAGS += \
+ 	-Wall \
+@@ -543,21 +526,6 @@
+ endif
+ endif
+ 
+-
+-#-------------------------------------------------
+-# linking flags
+-#-------------------------------------------------
+-
+-# LDFLAGS are used generally; LDFLAGSEMULATOR are additional
+-# flags only used when linking the core emulator
+-LDFLAGS =
+-ifneq ($(TARGETOS),macosx)
+-ifneq ($(TARGETOS),os2)
+-ifneq ($(TARGETOS),solaris)
+-LDFLAGS = -Wl,--warn-common
+-endif
+-endif
+-endif
+ LDFLAGSEMULATOR =
+ 
+ # add profiling information for the linker
+@@ -565,13 +533,6 @@
+ LDFLAGS += -pg
+ endif
+ 
+-# strip symbols and other metadata in non-symbols and non profiling builds
+-ifndef SYMBOLS
+-ifneq ($(TARGETOS),macosx)
+-LDFLAGS += -s
+-endif
+-endif
+-
+ # output a map file (emulator only)
+ ifdef MAP
+ LDFLAGSEMULATOR += -Wl,-Map,$(FULLNAME).map

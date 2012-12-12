@@ -1,0 +1,15 @@
+# ChangeLog for games-emulation/sdlmame
+# Copyright 1999-2012 Gentoo Foundation; Distributed under the GPL v2
+# $Header: $
+
+*sdlmame-0.147_p3 (12 Dec 2012)
+*sdlmame-0.147_p2 (12 Dec 2012)
+
+  12 Dec 2012; Michael Cook <mcook@mackal.net> +files/mame-0.139.ini.in,
+  +sdlmame-0.147_p2.ebuild, +sdlmame-0.147_p3.ebuild,
+  +files/sdlmame-0.147_p2-makefile.patch,
+  +files/sdlmame-0.147_p2-no-opengl.patch,
+  +files/sdlmame-0.147_p3-makefile.patch,
+  +files/sdlmame-0.147_p3-no-opengl.patch, +files/vector.ini, +metadata.xml:
+  Newer sdlmame ebuilds
+
